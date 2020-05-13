@@ -25,3 +25,9 @@ echo 'source /usr/local/opt/gitstatus/gitstatus.prompt.zsh' >>~/.zshrc
 ```zsh
 brew update && brew upgrade
 ```
+
+## Uninstall gitstatus with Homebrew
+
+```zsh
+brew uninstall romkatv/gitstatus/gitstatus
+```
