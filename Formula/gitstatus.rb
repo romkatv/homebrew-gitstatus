@@ -5,10 +5,11 @@ class Gitstatus < Formula
   sha256 "f1e6f48cdf39550dd42128a229d9acc681cf92d71130d7920d999295abca8909"
 
   depends_on "bash" => :test
-  depends_on "zsh"  => :test
+  depends_on "zsh"  => [:build, :test]
 
   def install
-    system 'sh', '-c', 'GITSTATUS_CACHE_DIR="$PWD"/usrbin ./install -f'
+    system 'zsh', '-fc', 'GITSTATUS_CACHE_DIR="$PWD"/usrbin ./install -f'
+    system 'zsh', '-fc', 'emulate zsh -o no_aliases; for f in *.zsh install; do zcompile -R -- $f.zwc $f || exit; done'
     prefix.install Dir["*"]
   end
 
