@@ -1,15 +1,14 @@
 class Gitstatus < Formula
   desc "Git status for Bash/Zsh prompt"
   homepage "https://github.com/romkatv/gitstatus"
-  url "https://github.com/romkatv/gitstatus/archive/v1.3.1.tar.gz"
-  sha256 "cdfd30c2f08a3a8519110c5f8ea242dae9af25e7b67bffc6d4f2bd2f1f7f48f9"
+  url "https://github.com/romkatv/gitstatus/archive/v1.4.1.tar.gz"
+  sha256 "443ded8c35c9599cc5a0b2d005a27f7010f7974568985acd4f1d3e66045d5c98"
 
   depends_on "bash" => :test
-  depends_on "zsh"  => [:build, :test]
+  depends_on "zsh"  => :test
 
   def install
-    system 'zsh', '-fc', 'unset -m "GITSTATUS_*"; GITSTATUS_CACHE_DIR="$PWD"/usrbin ./install -f'
-    system 'zsh', '-fc', 'emulate zsh -o no_aliases; for f in *.zsh install; do zcompile -R -- $f.zwc $f || exit; done'
+    system 'make', 'pkg'
     prefix.install Dir["*"]
   end
 
@@ -22,6 +21,8 @@ class Gitstatus < Formula
       To activate gitstatus in Zsh, add the following line to .zshrc:
 
         source #{opt_prefix}/gitstatus.prompt.zsh
+
+      If your .zshrc sets ZSH_THEME, remove that line.
     EOS
   end
 
