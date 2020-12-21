@@ -1,8 +1,8 @@
 class Gitstatus < Formula
   desc "Git status for Bash/Zsh prompt"
   homepage "https://github.com/romkatv/gitstatus"
-  url "https://github.com/romkatv/gitstatus/archive/v1.4.3.tar.gz"
-  sha256 "35d600e3ec15671eddde3261963ea93c69f178609f2fdaeeaec8d434727f56fc"
+  url "https://github.com/romkatv/gitstatus/archive/v1.4.4.tar.gz"
+  sha256 "51d6d1162904e173fcfc399da8a2aeaf0723e2b63a8ad4fd579f7b28e81cafdf"
 
   depends_on "bash" => :test
   depends_on "zsh"  => :test
